@@ -7,12 +7,10 @@ import abstractClasses.*;
 
 public class PoohUI extends HeroUI {
     Pooh pooh;
-    Scanner scan;
     ArrayList<String> actions;
 
     public PoohUI(Pooh h) {
         pooh = h;
-        scan = new Scanner(System.in);
     }
 
     public void start() {
@@ -22,7 +20,7 @@ public class PoohUI extends HeroUI {
         System.out.println("2. Go somewhere");
         System.out.println("3. Go home");
         int index = 0;
-        index = scan.nextInt();
+        index = new Scanner(System.in).nextInt();
         doAction(index);
     }
 
@@ -34,7 +32,7 @@ public class PoohUI extends HeroUI {
                     s = pooh.getDescription();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 System.out.println(s);
                 break;
@@ -46,7 +44,7 @@ public class PoohUI extends HeroUI {
                     System.out.println(pooh.goHome());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
         }
@@ -60,11 +58,11 @@ public class PoohUI extends HeroUI {
             numberOfFriends = pooh.numberOfFriends();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            scan.nextLine();
+            new Scanner(System.in).nextLine();
         }
         if (numberOfFriends != 0) {
             System.out.print("Do you want to invite a friend? Enter yes/no: ");
-            String input = scan.nextLine().toLowerCase();
+            String input = new Scanner(System.in).nextLine().toLowerCase();
             checkYesNoInput(input);
             if (input.equals("yes")) {
                 if (numberOfFriends > 0) {
@@ -72,7 +70,7 @@ public class PoohUI extends HeroUI {
                         friend = pooh.getFriendByName(chooseAFriend());
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
-                        scan.nextLine();
+                        new Scanner(System.in).nextLine();
                     }
                 }
             }
@@ -80,7 +78,7 @@ public class PoohUI extends HeroUI {
         System.out.println("Where do you want to go?");
         System.out.println(Location.possibleLocations());
 
-        int input = scan.nextInt();
+        int input = new Scanner(System.in).nextInt();
 
         switch(input) {
             case 1 :
@@ -109,11 +107,11 @@ public class PoohUI extends HeroUI {
             poohLocation = pooh.getLocation();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            scan.nextLine();
+            new Scanner(System.in).nextLine();
         }
         if (l.equals(poohLocation)) {
             System.out.print("Pooh is already here. Do you want to go somewhere else? Enter yes/no: ");
-            String inputLine = scan.nextLine();
+            String inputLine = new Scanner(System.in).nextLine();
             checkYesNoInput(inputLine);
             if (inputLine.equals("yes")) {
                 go();
@@ -125,14 +123,14 @@ public class PoohUI extends HeroUI {
                     System.out.println(pooh.speak("Let's go " + l.toString()));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
             } else {
                 try {
                     pooh.goTo(l);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
             }
         }
@@ -145,7 +143,7 @@ public class PoohUI extends HeroUI {
         System.out.println(++i + ". " + "Kanga");
         System.out.println(++i + ". " + "Tigger");
 
-        int input = scan.nextInt();
+        int input = new Scanner(System.in).nextInt();
 
         switch(input) {
             case 1:

@@ -7,12 +7,10 @@ import abstractClasses.*;
 
 public class KangaUI extends HeroUI {
     Kanga kanga;
-    Scanner scan;
     ArrayList<String> actions;
 
     public KangaUI(Kanga h) {
         kanga = h;
-        scan = new Scanner(System.in);
     }
 
     public void start() {
@@ -21,7 +19,7 @@ public class KangaUI extends HeroUI {
         System.out.println("1. Describe myself");
         System.out.println("2. Help Piglet");
         int index = 0;
-        index = scan.nextInt();
+        index = new Scanner(System.in).nextInt();
         doAction(index);
     }
 
@@ -33,7 +31,7 @@ public class KangaUI extends HeroUI {
                     s = kanga.getDescription();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 System.out.println(s);
                 break;
@@ -42,7 +40,7 @@ public class KangaUI extends HeroUI {
                     kanga.help("Piglet");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
         }

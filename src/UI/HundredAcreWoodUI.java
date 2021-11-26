@@ -7,11 +7,9 @@ import woods.*;
 public class HundredAcreWoodUI {
     boolean programCompleted;
     HundredAcreWood hundredAcreWood;
-    Scanner scan;
 
     public HundredAcreWoodUI(HundredAcreWood hundredAcreWood) {
         this.hundredAcreWood = hundredAcreWood;
-        scan = new Scanner(System.in);
         programCompleted = false;
     }
 
@@ -30,8 +28,8 @@ public class HundredAcreWoodUI {
             System.out.println("4. Show heroes");
             System.out.println("5. Exit");
             System.out.print("Enter a number: ");
-//            scan.reset();
-            int input = scan.nextInt();
+//            new Scanner(System.in).reset();
+            int input = new Scanner(System.in).nextInt();
             if (!doAction(input)) {
                 break;
             }
@@ -46,7 +44,7 @@ public class HundredAcreWoodUI {
                     info = hundredAcreWood.getMoreInformation();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 System.out.println(info);
                 System.out.println();
@@ -80,7 +78,7 @@ public class HundredAcreWoodUI {
             System.out.println(i + " " + hundredAcreWood.getHeroes().get(i - 1).toString());
         }
         int choose = 0;
-        choose = scan.nextInt();
+        choose = new Scanner(System.in).nextInt();
         if (choose > hundredAcreWood.getHeroes().size() || choose < 0){
             System.out.println("Incorrect index");
             return;
@@ -115,7 +113,7 @@ public class HundredAcreWoodUI {
     public boolean checkYesNoInput(String input) {
         while(!(input.equals("yes") || input.equals("no"))) {
             System.out.print("Wrong input, please, write yes\no: ");
-            input = scan.nextLine().toLowerCase();
+            input = new Scanner(System.in).nextLine().toLowerCase();
         }
         return true;
     }
@@ -127,7 +125,7 @@ public class HundredAcreWoodUI {
         System.out.println("3. Kanga");
         System.out.println("4. Tigger");
         System.out.print("Enter the number: ");
-        int input = scan.nextInt();
+        int input = new Scanner(System.in).nextInt();
         switch (input) {
             case 1:
                 try {
@@ -135,7 +133,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero added");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
             case 2:
@@ -144,7 +142,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero added");
                 } catch (Throwable e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
             case 3:
@@ -153,7 +151,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero added");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
             case 4:
@@ -162,7 +160,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero added");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
         }
@@ -175,7 +173,7 @@ public class HundredAcreWoodUI {
         System.out.println("3. Kanga");
         System.out.println("4. Tigger");
         System.out.print("Enter the number: ");
-        int input = scan.nextInt();
+        int input = new Scanner(System.in).nextInt();
         boolean contains = false;
         boolean succeed = false;
         switch(input) {
@@ -185,7 +183,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
             case 2:
@@ -194,7 +192,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
             case 3:
@@ -203,7 +201,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
             case 4:
@@ -212,7 +210,7 @@ public class HundredAcreWoodUI {
                     System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
         }
     }

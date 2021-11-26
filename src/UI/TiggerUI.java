@@ -7,12 +7,10 @@ import abstractClasses.*;
 
 public class TiggerUI extends HeroUI {
     Tigger tigger;
-    Scanner scan;
     ArrayList<String> actions;
 
     public TiggerUI(Tigger h) {
         tigger = h;
-        scan = new Scanner(System.in);
     }
 
     public void start() {
@@ -22,7 +20,7 @@ public class TiggerUI extends HeroUI {
         System.out.println("1. Describe myself");
         System.out.println("2. Jump");
         int index = 0;
-        index = scan.nextInt();
+        index = new Scanner(System.in).nextInt();
         doAction(index);
     }
 
@@ -40,7 +38,7 @@ public class TiggerUI extends HeroUI {
                     s = tigger.getDescription();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 System.out.println(s);
                 break;
@@ -49,7 +47,7 @@ public class TiggerUI extends HeroUI {
                     System.out.println(tigger.jump());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
                 break;
         }

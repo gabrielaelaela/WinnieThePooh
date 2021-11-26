@@ -7,17 +7,15 @@ import abstractClasses.*;
 
 public class PigletUI extends HeroUI {
     Piglet piglet;
-    Scanner scan;
     ArrayList<String> actions;
 
     public PigletUI(Piglet hero, Wood wood) {
         piglet = hero;
-        scan = new Scanner(System.in);
     }
 
     public void start() {
         System.out.print("Hey, I am Piglet! I love acorns and helping my friends! Do you want to be my friend? Enter yes/no: ");
-        String input = scan.nextLine().toLowerCase();
+        String input = new Scanner(System.in).nextLine().toLowerCase();
         checkYesNoInput(input);
 
         if (input.equals("yes")) {
@@ -35,7 +33,7 @@ public class PigletUI extends HeroUI {
         System.out.println("5. Go somewhere");
         System.out.println("6. Go home");
         int index = 0;
-        index = scan.nextInt();
+        index = new Scanner(System.in).nextInt();
         doAction(index);
     }
 
@@ -67,7 +65,7 @@ public class PigletUI extends HeroUI {
         Location l = null;
         if (piglet.numberOfFriends() != 0) {
             System.out.print("Do you want to invite a friend? Enter yes/no: ");
-            String input = scan.nextLine().toLowerCase();
+            String input = new Scanner(System.in).nextLine().toLowerCase();
             checkYesNoInput(input);
             if (input.equals("yes")) {
                 if (piglet.numberOfFriends() > 0) {
@@ -75,7 +73,7 @@ public class PigletUI extends HeroUI {
                         friend = piglet.getFriendByName(chooseAFriend());
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
-                        scan.nextLine();
+                        new Scanner(System.in).nextLine();
                     }
                 }
             }
@@ -83,7 +81,7 @@ public class PigletUI extends HeroUI {
         System.out.println("Where do you want to go?");
         System.out.println(Location.possibleLocations());
 
-        int input = scan.nextInt();
+        int input = new Scanner(System.in).nextInt();
 
         switch(input) {
             case 1 :
@@ -112,7 +110,7 @@ public class PigletUI extends HeroUI {
             poohLocation = piglet.getLocation();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            scan.nextLine();
+            new Scanner(System.in).nextLine();
         }
         if (l.equals(poohLocation)) {
             System.out.print("Piglet is already here. Do you want to go somewhere else? Enter yes/no: ");
@@ -128,14 +126,14 @@ public class PigletUI extends HeroUI {
                     System.out.println(piglet.speak("Let's go " + l.toString()));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
             } else {
                 try {
                     piglet.goTo(l);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
-                    scan.nextLine();
+                    new Scanner(System.in).nextLine();
                 }
             }
         }
@@ -148,7 +146,7 @@ public class PigletUI extends HeroUI {
         System.out.println(++i + ". " + "Kanga");
         System.out.println(++i + ". " + "Tigger");
 
-        int input = scan.nextInt();
+        int input = new Scanner(System.in).nextInt();
 
         switch(input) {
             case 1:
