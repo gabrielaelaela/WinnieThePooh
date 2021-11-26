@@ -42,7 +42,7 @@ public class HundredAcreWoodUI {
     }
 
     public boolean doAction(int input) {
-        switch() {
+        switch(input) {
             case 1:
                 String info = null;
                 try {
