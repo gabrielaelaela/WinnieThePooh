@@ -16,7 +16,7 @@ public class PigletUI extends HeroUI {
     }
 
     public void start() {
-        System.out.print("Hey, I am Piglet! I love acorns and helping my friends! Do you want to be my friend?\nEnter yes\no: ");
+        System.out.print("Hey, I am Piglet! I love acorns and helping my friends! Do you want to be my friend? Enter yes/no: ");
         String input = scan.nextLine().toLowerCase();
         checkYesNoInput(input);
 
@@ -43,16 +43,22 @@ public class PigletUI extends HeroUI {
         switch(i) {
             case 1:
                 piglet.getDescription();
+                break;
             case 2:
                 System.out.println(piglet.jump());
+                break;
             case 3:
                 System.out.println(piglet.cry());
+                break;
             case 4:
                 System.out.println(piglet.wipe(piglet.getPaws(), piglet.getBelly()));
+                break;
             case 5:
                 go();
+                break;
             case 6:
                 piglet.goHome();
+                break;
         }
     }
 
@@ -60,12 +66,17 @@ public class PigletUI extends HeroUI {
         Walkable friend = null;
         Location l = null;
         if (piglet.numberOfFriends() != 0) {
-            System.out.print("Do you want to invite a friend? Enter yes\no: ");
+            System.out.print("Do you want to invite a friend? Enter yes/no: ");
             String input = scan.nextLine().toLowerCase();
             checkYesNoInput(input);
             if (input.equals("yes")) {
                 if (piglet.numberOfFriends() > 0) {
-                    friend = piglet.getFriendByName(chooseAFriend());
+                    try {
+                        friend = piglet.getFriendByName(chooseAFriend());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        scan.nextLine();
+                    }
                 }
             }
         }
@@ -104,8 +115,8 @@ public class PigletUI extends HeroUI {
             scan.nextLine();
         }
         if (l.equals(poohLocation)) {
-            System.out.print("Pooh is already here. Do you want to go somewhere else? Enter yes\no: ");
-            String inputLine = scan.nextLine();
+            System.out.print("Piglet is already here. Do you want to go somewhere else? Enter yes/no: ");
+            String inputLine = new Scanner(System.in).nextLine();
             checkYesNoInput(inputLine);
             if (inputLine.equals("yes")) {
                 go();
@@ -142,13 +153,12 @@ public class PigletUI extends HeroUI {
         switch(input) {
             case 1:
                 return "Piglet";
-
             case 2:
                 return "Kanga";
-
             case 3:
                 return "Tigger";
+            default:
+                return null;
         }
-        return null;
     }
 }

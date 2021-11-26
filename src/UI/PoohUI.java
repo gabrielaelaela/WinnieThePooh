@@ -37,28 +37,43 @@ public class PoohUI extends HeroUI {
                     scan.nextLine();
                 }
                 System.out.println(s);
+                break;
             case 2:
                 go();
+                break;
             case 3:
                 try {
-                    s = pooh.goHome();
+                    System.out.println(pooh.goHome());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     scan.nextLine();
                 }
+                break;
         }
     }
 
     private void go() {
         Walkable friend = null;
         Location l = null;
-        if (pooh.numberOfFriends() != 0) {
-            System.out.print("Do you want to invite a friend? Enter yes\no: ");
+        int numberOfFriends = 0;
+        try {
+            numberOfFriends = pooh.numberOfFriends();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            scan.nextLine();
+        }
+        if (numberOfFriends != 0) {
+            System.out.print("Do you want to invite a friend? Enter yes/no: ");
             String input = scan.nextLine().toLowerCase();
             checkYesNoInput(input);
             if (input.equals("yes")) {
-                if (pooh.numberOfFriends() > 0) {
-                    friend = pooh.getFriendByName(chooseAFriend());
+                if (numberOfFriends > 0) {
+                    try {
+                        friend = pooh.getFriendByName(chooseAFriend());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        scan.nextLine();
+                    }
                 }
             }
         }
@@ -97,7 +112,7 @@ public class PoohUI extends HeroUI {
             scan.nextLine();
         }
         if (l.equals(poohLocation)) {
-            System.out.print("Pooh is already here. Do you want to go somewhere else? Enter yes\no: ");
+            System.out.print("Pooh is already here. Do you want to go somewhere else? Enter yes/no: ");
             String inputLine = scan.nextLine();
             checkYesNoInput(inputLine);
             if (inputLine.equals("yes")) {

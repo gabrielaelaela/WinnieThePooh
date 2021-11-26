@@ -27,7 +27,6 @@ public class Piglet implements Hero, Talkable, Emotionable, Positionable, Wipeab
         this.wood = wood;
     }
 
-
     @Override
     public String speak(String s) {
         return s;
@@ -35,7 +34,7 @@ public class Piglet implements Hero, Talkable, Emotionable, Positionable, Wipeab
 
     @Override
     public Happiness jump() {
-        int random = (int) Math.round(Math.random()*4);
+        int random = (int) Math.floor(Math.random()*4);
         return Happiness.getByIndex(random);
     }
 
@@ -137,8 +136,7 @@ public class Piglet implements Hero, Talkable, Emotionable, Positionable, Wipeab
 
     @Override
     public boolean equals(Hero h) {
-        if (h.getName().equals(this.name)) return true;
-        return false;
+        return h.getName().equals(this.name);
     }
 
     @Override
@@ -147,7 +145,7 @@ public class Piglet implements Hero, Talkable, Emotionable, Positionable, Wipeab
     }
 
     @Override
-    public Walkable getFriendByName(String name) {
+    public Walkable getFriendByName(String name) throws Exception {
         return wood.getHeroByName(name);
     }
 }

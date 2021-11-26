@@ -87,8 +87,7 @@ public class Pooh implements Hero, Talkable {
 
     @Override
     public boolean equals(Hero h) {
-        if (h.getName().equals(this.name)) return true;
-        return false;
+        return h.getName().equals(this.name);
     }
 
     @Override
@@ -97,7 +96,7 @@ public class Pooh implements Hero, Talkable {
     }
 
     @Override
-    public Walkable getFriendByName(String name) {
+    public Walkable getFriendByName(String name) throws Exception {
         return wood.getHeroByName(name);
     }
 }

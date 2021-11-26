@@ -19,7 +19,7 @@ public class KangaUI extends HeroUI {
         System.out.println("Hi, I am Kanga, and I have an adorable son Roo!");
         System.out.println("Here is the list what I can do:");
         System.out.println("1. Describe myself");
-        System.out.println("2. Help");
+        System.out.println("2. Help Piglet");
         int index = 0;
         index = scan.nextInt();
         doAction(index);
@@ -36,6 +36,7 @@ public class KangaUI extends HeroUI {
                     scan.nextLine();
                 }
                 System.out.println(s);
+                break;
             case 2:
                 try {
                     kanga.help("Piglet");
@@ -43,6 +44,7 @@ public class KangaUI extends HeroUI {
                     System.out.println(e.getMessage());
                     scan.nextLine();
                 }
+                break;
         }
     }
 }

@@ -10,8 +10,8 @@ public class TiggerUI extends HeroUI {
     Scanner scan;
     ArrayList<String> actions;
 
-    public TiggerUI(Hero h) {
-        tigger = (Tigger) h;
+    public TiggerUI(Tigger h) {
+        tigger = h;
         scan = new Scanner(System.in);
     }
 
@@ -43,6 +43,7 @@ public class TiggerUI extends HeroUI {
                     scan.nextLine();
                 }
                 System.out.println(s);
+                break;
             case 2:
                 try {
                     System.out.println(tigger.jump());
@@ -50,6 +51,7 @@ public class TiggerUI extends HeroUI {
                     System.out.println(e.getMessage());
                     scan.nextLine();
                 }
+                break;
         }
     }
 }

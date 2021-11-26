@@ -30,12 +30,9 @@ public class HundredAcreWoodUI {
             System.out.println("4. Show heroes");
             System.out.println("5. Exit");
             System.out.print("Enter a number: ");
-            System.out.flush();
-            String input = scan.nextLine();
-
-            int id = Integer.parseInt(input);
-            System.out.println();
-            if (!doAction(id)) {
+//            scan.reset();
+            int input = scan.nextInt();
+            if (!doAction(input)) {
                 break;
             }
         }
@@ -63,7 +60,7 @@ public class HundredAcreWoodUI {
                 System.out.println();
                 return true;
             case 4:
-                ShowHeroes();
+                showHeroes();
                 return true;
             case 5:
                 programCompleted = true;
@@ -74,13 +71,13 @@ public class HundredAcreWoodUI {
         }
     }
 
-    private void ShowHeroes(){
+    private void showHeroes() {
         if (hundredAcreWood.getHeroes().size() == 0) {
             System.out.println("There are no heroes in the wood");
             return;
         }
         for (int i = 1; i <= hundredAcreWood.getHeroes().size(); i++){
-            System.out.println(i + " " + hundredAcreWood.getHeroes().get(i).toString());
+            System.out.println(i + " " + hundredAcreWood.getHeroes().get(i - 1).toString());
         }
         int choose = 0;
         choose = scan.nextInt();
@@ -94,10 +91,10 @@ public class HundredAcreWoodUI {
         CreateHeroUI(hundredAcreWood.getHeroes().get(choose - 1));
     }
 
-    private void CreateHeroUI(Hero hero){
+    private void CreateHeroUI(Hero hero) {
         switch (hero.getName()){
             case "Winnie-the-Pooh":
-                PoohUI poohUI = new PoohUI((Pooh) hero);
+                PoohUI poohUI = new PoohUI((Pooh)hero);
                 poohUI.start();
                 break;
             case "Piglet":
@@ -145,7 +142,7 @@ public class HundredAcreWoodUI {
                 try {
                     hundredAcreWood.addPiglet();
                     System.out.println("Hero added");
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     System.out.println(e.getMessage());
                     scan.nextLine();
                 }
@@ -184,8 +181,8 @@ public class HundredAcreWoodUI {
         switch(input) {
             case 1:
                 try {
-                    if(hundredAcreWood.removeHero("Winnie-the-Pooh")) System.out.println("Hero deleted");
-                    else System.out.println("The hero is not in the wood");
+                    hundredAcreWood.removeHero("Winnie-the-Pooh");
+                    System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     scan.nextLine();
@@ -194,6 +191,7 @@ public class HundredAcreWoodUI {
             case 2:
                 try {
                     hundredAcreWood.removeHero("Piglet");
+                    System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     scan.nextLine();
@@ -202,6 +200,7 @@ public class HundredAcreWoodUI {
             case 3:
                 try {
                     hundredAcreWood.removeHero("Kanga");
+                    System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     scan.nextLine();
@@ -210,6 +209,7 @@ public class HundredAcreWoodUI {
             case 4:
                 try {
                     hundredAcreWood.removeHero("Tigger");
+                    System.out.println("Hero was deleted");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     scan.nextLine();

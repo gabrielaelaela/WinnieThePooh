@@ -13,7 +13,7 @@ public enum Location {
         this.string = string;
     }
 
-    public String getUrl() {
+    public String toString() {
         return string;
     }
 

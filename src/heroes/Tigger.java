@@ -26,12 +26,6 @@ public class Tigger implements Hero, Emotionable, Greetable {
         return Happiness.getByIndex(random);
     }
 
-    public Happiness jump(Piglet piglet) {
-        piglet.getEars().setPurity(Purity.FULLSAND);
-        int random = (int) Math.round(Math.random()*4);
-        return Happiness.getByIndex(random);
-    }
-
     @Override
     public Offensiveness cry() {
         int random = (int) Math.round(Math.random()*4);
@@ -109,7 +103,7 @@ public class Tigger implements Hero, Emotionable, Greetable {
     }
 
     @Override
-    public Walkable getFriendByName(String name) {
+    public Walkable getFriendByName(String name) throws Exception {
         return wood.getHeroByName(name);
     }
 }

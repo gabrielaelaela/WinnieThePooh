@@ -10,41 +10,37 @@ public class HundredAcreWood implements Wood {
         heroes = new ArrayList<Hero>(4);
     }
 
-    public boolean addPooh() {
+    public boolean addPooh() throws Exception {
         Pooh pooh = new Pooh(this);
         if (containsHero(pooh.getName())) {
-            System.out.println("Hero is already in the wood");
-            return false;
+            throw new Exception("Hero is already in the wood");
         }
         heroes.add(pooh);
         return true;
     }
 
-    public boolean addPiglet() {
+    public boolean addPiglet() throws Exception {
         Piglet piglet = new Piglet(this);
         if (containsHero(piglet.getName())) {
-            System.out.println("Hero is already in the wood");
-            return false;
+            throw new Exception("Hero is already in the wood");
         }
         heroes.add(piglet);
         return true;
     }
 
-    public boolean addKanga() {
+    public boolean addKanga() throws Exception {
         Kanga kanga = new Kanga(this);
         if (containsHero(kanga.getName())) {
-            System.out.println("Hero is already in the wood");
-            return false;
+            throw new Exception("Hero is already in the wood");
         }
         heroes.add(kanga);
         return true;
     }
 
-    public boolean addTigger() {
+    public boolean addTigger() throws Exception {
         Tigger tigger = new Tigger(this);
         if (containsHero(tigger.getName())) {
-            System.out.println("Hero is already in the wood");
-            return false;
+            throw new Exception("Hero is already in the wood");
         }
         heroes.add(tigger);
         return true;
@@ -64,31 +60,31 @@ public class HundredAcreWood implements Wood {
     }
 
     @Override
-    public boolean removeHero(String name) {
+    public boolean removeHero(String name) throws Exception {
         if (containsHero(name)) {
             heroes.remove(getHeroByName(name));
             return true;
         }
-        return false;
+        throw new Exception("Hero is not in the wood");
     }
 
     @Override
     public boolean containsHero(String name) {
         for (Hero addedHero: heroes) {
-            if (getHeroByName(name).equals(addedHero)) return true;
+            if (addedHero.getName().equals(name)) return true;
         }
         return false;
     }
 
-    public Hero getHeroByName(String name) {
+    public Hero getHeroByName(String name) throws Exception {
         for (Hero h: heroes) {
-            if (getHeroByName(name).getName().equals(h)) return h;
+            if (h.getName().equals(name)) return h;
         }
-        return null;
+        throw new Exception(name + " is not in the wood");
     }
 
     @Override
-    public void removeAllHeroes() {
+    public void removeAllHeroes() throws Exception {
         for (Hero h: heroes) {
             removeHero(h.getName());
         }
