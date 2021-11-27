@@ -15,8 +15,7 @@ public class PoohTest {
     @Before
     public void setUp() throws Exception {
         wood = new HundredAcreWood();
-        wood.addPooh();
-        pooh = (Pooh)wood.getHeroByName("Pooh");
+        pooh = wood.addPooh();
     }
 
     @Test
@@ -41,13 +40,14 @@ public class PoohTest {
 
     @Test
     public void getFriendByName() {
+        Piglet piglet = null;
         try {
-            wood.addPiglet();
+            piglet = wood.addPiglet();
         } catch (Exception e) {
             Assert.fail();
         }
         try {
-            Assert.assertEquals(pooh.getFriendByName("Piglet"), new Piglet(wood));
+            Assert.assertEquals(pooh.getFriendByName("Piglet"), piglet);
         } catch (Exception e) {
             Assert.fail();
         }

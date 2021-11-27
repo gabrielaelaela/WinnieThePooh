@@ -14,8 +14,7 @@ public class PigletTest {
     @Before
     public void setUp() throws Exception {
         wood = new HundredAcreWood();
-        wood.addPiglet();
-        piglet = (Piglet) wood.getHeroByName("Pooh");
+        piglet = wood.addPiglet();
     }
 
     @Test

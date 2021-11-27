@@ -14,8 +14,7 @@ public class KangaTest {
     @Before
     public void setUp() throws Exception {
         wood = new HundredAcreWood();
-        wood.addKanga();
-        kanga = (Kanga) wood.getHeroByName("Kanga");
+        kanga = wood.addKanga();
     }
 
     @Test

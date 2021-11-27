@@ -16,8 +16,7 @@ public class TiggerTest {
     @Before
     public void setUp() throws Exception {
         wood = new HundredAcreWood();
-        wood.addKanga();
-        tigger = (Tigger) wood.getHeroByName("Tigger");
+        tigger = wood.addTigger();
     }
 
     @Test

@@ -7,43 +7,43 @@ public class HundredAcreWood implements Wood {
     private ArrayList<Hero> heroes;
 
     public HundredAcreWood() {
-        heroes = new ArrayList<Hero>(4);
+        heroes = new ArrayList<>(4);
     }
 
-    public boolean addPooh() throws Exception {
+    public Pooh addPooh() throws Exception {
         Pooh pooh = new Pooh(this);
         if (containsHero(pooh.getName())) {
             throw new Exception("Hero is already in the wood");
         }
         heroes.add(pooh);
-        return true;
+        return pooh;
     }
 
-    public boolean addPiglet() throws Exception {
+    public Piglet addPiglet() throws Exception {
         Piglet piglet = new Piglet(this);
         if (containsHero(piglet.getName())) {
             throw new Exception("Hero is already in the wood");
         }
         heroes.add(piglet);
-        return true;
+        return piglet;
     }
 
-    public boolean addKanga() throws Exception {
+    public Kanga addKanga() throws Exception {
         Kanga kanga = new Kanga(this);
         if (containsHero(kanga.getName())) {
             throw new Exception("Hero is already in the wood");
         }
         heroes.add(kanga);
-        return true;
+        return kanga;
     }
 
-    public boolean addTigger() throws Exception {
+    public Tigger addTigger() throws Exception {
         Tigger tigger = new Tigger(this);
         if (containsHero(tigger.getName())) {
             throw new Exception("Hero is already in the wood");
         }
         heroes.add(tigger);
-        return true;
+        return tigger;
     }
 
     public String getMoreInformation() {
@@ -91,11 +91,11 @@ public class HundredAcreWood implements Wood {
     }
 
     public String listHeroes() {
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (Hero h: heroes) {
-            output += h.getName() + "\n";
+            output.append(h.getName()).append("\n");
         }
-        return output;
+        return output.toString();
     }
 
     public ArrayList<Hero> getHeroes() {
@@ -105,7 +105,7 @@ public class HundredAcreWood implements Wood {
     public int friendsQuantity(Hero h) {
         int i = 0;
         for (Hero addedHero: heroes) {
-            if ((!addedHero.equals(h)) && !(addedHero == null)) i++;
+            if (!addedHero.equals(h)) ++i;
         }
         return i;
     }
