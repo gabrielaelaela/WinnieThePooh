@@ -14,9 +14,10 @@ public class Kanga implements Hero, Talkable, Helpable {
     }
 
     @Override
-    public void help(String name) throws Exception {
+    public boolean help(String name) throws Exception {
         Hero hero = wood.getHeroByName(name);
         hero.setPosition(Position.STAND);
+        return true;
     }
 
     @Override
@@ -88,6 +89,7 @@ public class Kanga implements Hero, Talkable, Helpable {
 
     @Override
     public boolean equals(Hero h) {
+        if (h.getName().equals(this.name)) return true;
         return h.getName().equals(this.name);
     }
 

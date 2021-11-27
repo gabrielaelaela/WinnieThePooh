@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface Helpable {
-    public void help(String name) throws Exception;
+    boolean help(String name) throws Exception;
 }

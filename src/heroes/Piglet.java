@@ -118,7 +118,7 @@ public class Piglet implements Hero, Talkable, Emotionable, Positionable, Wipeab
 
     @Override
     public String wipe(BodyPart wipeable, BodyPart subject) {
-        return "Paws: '" + this.paws.getClean() + "' \nBelly: '" + this.belly.getDirty() + "'";
+        return "Paws: '" + this.paws.getClean() + "'\nBelly: '" + this.belly.getDirty() + "'";
     }
 
     public Paws getPaws() {
