@@ -5,11 +5,11 @@ import interfaces.*;
 import enums.*;
 import abstractClasses.*;
 
-public class PoohUI extends HeroUI {
-    Pooh pooh;
+public class Pooh extends HeroUI {
+    heroes.Pooh pooh;
     ArrayList<String> actions;
 
-    public PoohUI(Pooh h) {
+    public Pooh(heroes.Pooh h) {
         pooh = h;
     }
 

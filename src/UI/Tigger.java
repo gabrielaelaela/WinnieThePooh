@@ -5,11 +5,11 @@ import interfaces.*;
 import enums.*;
 import abstractClasses.*;
 
-public class TiggerUI extends HeroUI {
-    Tigger tigger;
+public class Tigger extends HeroUI {
+    heroes.Tigger tigger;
     ArrayList<String> actions;
 
-    public TiggerUI(Tigger h) {
+    public Tigger(heroes.Tigger h) {
         tigger = h;
     }
 

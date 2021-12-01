@@ -1,14 +1,12 @@
 package UI;
 import java.util.*;
 import interfaces.*;
-import heroes.*;
-import woods.*;
 
-public class HundredAcreWoodUI {
+public class HundredAcreWood {
     boolean programCompleted;
-    HundredAcreWood hundredAcreWood;
+    woods.HundredAcreWood hundredAcreWood;
 
-    public HundredAcreWoodUI(HundredAcreWood hundredAcreWood) {
+    public HundredAcreWood(woods.HundredAcreWood hundredAcreWood) {
         this.hundredAcreWood = hundredAcreWood;
         programCompleted = false;
     }
@@ -92,19 +90,19 @@ public class HundredAcreWoodUI {
     private void CreateHeroUI(Hero hero) {
         switch (hero.getName()){
             case "Winnie-the-Pooh":
-                PoohUI poohUI = new PoohUI((Pooh)hero);
+                Pooh poohUI = new Pooh((heroes.Pooh)hero);
                 poohUI.start();
                 break;
             case "Piglet":
-                PigletUI pigletUI = new PigletUI((Piglet)hero, hundredAcreWood);
+                Piglet pigletUI = new Piglet((heroes.Piglet)hero, hundredAcreWood);
                 pigletUI.start();
                 break;
             case "Kanga":
-                KangaUI kangaUI = new KangaUI((Kanga)hero);
+                Kanga kangaUI = new Kanga((heroes.Kanga)hero);
                 kangaUI.start();
                 break;
             case "Tigger":
-                TiggerUI tiggerUI = new TiggerUI((Tigger)hero);
+                Tigger tiggerUI = new Tigger((heroes.Tigger)hero);
                 tiggerUI.start();
                 break;
         }

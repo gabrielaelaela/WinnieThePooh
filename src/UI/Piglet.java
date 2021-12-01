@@ -5,11 +5,11 @@ import interfaces.*;
 import enums.*;
 import abstractClasses.*;
 
-public class PigletUI extends HeroUI {
-    Piglet piglet;
+public class Piglet extends HeroUI {
+    heroes.Piglet piglet;
     ArrayList<String> actions;
 
-    public PigletUI(Piglet hero, Wood wood) {
+    public Piglet(heroes.Piglet hero, Wood wood) {
         piglet = hero;
     }
 

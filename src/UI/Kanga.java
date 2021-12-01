@@ -5,11 +5,11 @@ import interfaces.*;
 import enums.*;
 import abstractClasses.*;
 
-public class KangaUI extends HeroUI {
-    Kanga kanga;
+public class Kanga extends HeroUI {
+    heroes.Kanga kanga;
     ArrayList<String> actions;
 
-    public KangaUI(Kanga h) {
+    public Kanga(heroes.Kanga h) {
         kanga = h;
     }
 
